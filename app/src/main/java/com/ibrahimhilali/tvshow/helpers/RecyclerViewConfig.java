@@ -11,9 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ibrahimhilali.tvshow.R;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.ibrahimhilali.tvshow.models.Show;
 
 import java.util.List;
 
@@ -23,7 +21,7 @@ public class RecyclerViewConfig {
     private ShowAdepter showAdepter;
 
 
-    public void setConfig(RecyclerView recyclerView, Context context, List<JSONObject> shows, List<Integer> keys) {
+    public void setConfig(RecyclerView recyclerView, Context context, List<Show> shows, List<Integer> keys) {
         this.context = context;
         this.showAdepter = new ShowAdepter(shows, keys);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.context));
@@ -45,24 +43,19 @@ public class RecyclerViewConfig {
 
         }
 
-        public void bind(JSONObject show, int key) {
-            try {
-                mTitle.setText(show.getString("name"));
-                String text = show.getString("summary");
-                mContent.setText(Html.fromHtml(text, Html.FROM_HTML_MODE_COMPACT).toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        public void bind(Show show, int key) {
+            mTitle.setText(show.getName());
+            mContent.setText(Html.fromHtml(show.getSummary(), Html.FROM_HTML_MODE_COMPACT).toString());
             this.key = key;
         }
 
     }
 
     class ShowAdepter extends RecyclerView.Adapter<ShowViewHolder> {
-        private List<JSONObject> shows;
+        private List<Show> shows;
         private List<Integer> keys;
 
-        ShowAdepter(List<JSONObject> shows, List<Integer> keys) {
+        ShowAdepter(List<Show> shows, List<Integer> keys) {
             this.keys = keys;
             this.shows = shows;
         }
