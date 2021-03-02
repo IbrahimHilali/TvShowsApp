@@ -93,11 +93,13 @@ public class ApiManager {
                 for (int i = 0; i < response.length() || i < 50; i++) {
                     Show show = null;
                     try {
-                        JSONObject json = response.getJSONObject(i).getJSONObject("show");
-
+                        JSONObject json = response.getJSONObject(i);
                         show = new Gson().fromJson(json.toString(), Show.class);
                     } catch (JSONException e) {
                         Log.v(TAG, e.getMessage());
+                        e.printStackTrace();
+                    }catch (Exception e){
+                        Log.e(TAG, e.getMessage());
                         e.printStackTrace();
                     }
                     keys.add(i);

@@ -3,7 +3,7 @@ package com.ibrahimhilali.tvshow.models;
 public class WebChannel {
     protected Long id;
     protected String name;
-    protected String country;
+    protected Country country;
 
     WebChannel() {
 
@@ -25,11 +25,11 @@ public class WebChannel {
         this.name = name;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 }

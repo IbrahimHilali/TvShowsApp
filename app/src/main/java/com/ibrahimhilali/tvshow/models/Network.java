@@ -5,7 +5,7 @@ import java.util.Map;
 public class Network {
     protected Long id;
     protected String name;
-    protected Map<String, String> country;
+    protected Country country;
 
     Network() {
 
@@ -27,11 +27,11 @@ public class Network {
         this.name = name;
     }
 
-    public Map<String, String> getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(Map<String, String> country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 }

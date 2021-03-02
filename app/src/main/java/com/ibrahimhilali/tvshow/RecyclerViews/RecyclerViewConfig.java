@@ -1,4 +1,4 @@
-package com.ibrahimhilali.tvshow.helpers;
+package com.ibrahimhilali.tvshow.RecyclerViews;
 
 import android.content.Context;
 import android.text.Html;
@@ -63,7 +63,6 @@ public class RecyclerViewConfig {
         @NonNull
         @Override
         public ShowViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
             return new ShowViewHolder(parent);
         }
 
@@ -71,8 +70,7 @@ public class RecyclerViewConfig {
         public void onBindViewHolder(@NonNull ShowViewHolder holder, int position) {
             holder.bind(shows.get(position), keys.get(position));
         }
-
-
+        
         @Override
         public int getItemCount() {
             return shows.size();
