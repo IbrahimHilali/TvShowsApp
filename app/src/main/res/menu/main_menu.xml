@@ -7,4 +7,9 @@
         android:icon="@drawable/ic_search_black_24dp"
         android:title="@string/main_menu_search"
         app:actionViewClass="android.widget.SearchView" />
+    <item
+        android:id="@+id/menu_item_filters"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="@string/main_menu_item_filters"
+        app:actionViewClass="androidx.appcompat.widget.ActivityChooserView" />
 </menu>

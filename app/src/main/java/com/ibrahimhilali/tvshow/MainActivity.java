@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     protected void setupApiManager() {
         manager = new ApiManager(getApplicationContext());
-        paginator = new Paginating<>(showsRecyclerView, getApplicationContext(), this.setRecycleViewItemLister());
+        paginator = new Paginating(showsRecyclerView, getApplicationContext(), this.setRecycleViewItemLister());
         status = actionAccordingStatus();
         manager.getAllShows(status);
     }

@@ -6,4 +6,8 @@
     <string name="app_label">TV Shows</string>
     <string name="search_hint">Search Tv Shows</string>
     <string name="main_menu_search">Search</string>
+    <string name="main_menu_item_filters">Filters</string>
+    <string name="filter_title">TextView</string>
+    <string name="filter_item_active">Switch</string>
+    <string name="filter_item_value_hint">Insert Value</string>
 </resources>

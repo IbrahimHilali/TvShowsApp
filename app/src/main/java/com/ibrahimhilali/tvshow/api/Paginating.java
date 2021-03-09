@@ -5,6 +5,11 @@ import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ibrahimhilali.tvshow.RecyclerViews.RecyclerViewConfig;
+import com.ibrahimhilali.tvshow.filters.CountryFilter;
+import com.ibrahimhilali.tvshow.filters.DeltaFilters;
+import com.ibrahimhilali.tvshow.filters.Filter;
+import com.ibrahimhilali.tvshow.filters.RateFilter;
+import com.ibrahimhilali.tvshow.filters.TypeFilter;
 import com.ibrahimhilali.tvshow.models.Show;
 
 import java.util.ArrayList;
@@ -23,6 +28,7 @@ public class Paginating<T> {
     protected RecyclerViewConfig config;
     protected ArrayList<Integer> keys;
     protected Events events;
+    protected DeltaFilters filters;
 
     public Paginating(RecyclerView recyclerView, Context context, final Events events) {
         this.current = 1;
@@ -37,9 +43,26 @@ public class Paginating<T> {
 
     public void setItems(ArrayList<T> items) {
         this.items = items;
+        this.filters = setupFilters();
         this.count = (int) Math.ceil((double) this.items.size() / this.countPerPage);
         this.current = 1;
         loadPage();
+    }
+
+    /**
+     * Delta Filter and  Filters
+     */
+    protected DeltaFilters setupFilters() {
+        return new DeltaFilters() {
+            @Override
+            public List<Filter> filters() {
+                return List.of(
+                        new TypeFilter<Show>(true),
+                        new CountryFilter<Show>(true),
+                        new RateFilter<Show>(true)
+                );
+            }
+        };
     }
 
     public void next() {
